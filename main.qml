@@ -17,8 +17,7 @@ ApplicationWindow {
             id: layout
             anchors.fill: parent
             spacing: 0
-            Rectangle {
-                color: 'teal'
+            LeftControlBar {
                 Layout.fillWidth: false
                 Layout.fillHeight: true
                 /****fillWidth设置为true
@@ -29,23 +28,40 @@ ApplicationWindow {
                 Layout.preferredWidth: 60
                 Layout.maximumWidth: 300
                 Layout.minimumHeight: 150
-
-                LeftControlBar {
-
-                }
             }
+
             Rectangle {
-                color: 'plum'
+
+
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.minimumWidth: 100
-                Layout.preferredWidth: 200
-                Layout.preferredHeight: 100
-                Text {
-                    anchors.centerIn: parent
-                    text: parent.width + 'x' + parent.height
+
+                color: 'orange'
+
+                ColumnLayout {
+
+
+
+
+
+
+                    Rectangle {
+                        color: 'blue'
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 50
+                    }
+
+                    Rectangle {
+                        color: 'green'
+                    }
+
+                    RowLayout {
+
+                    }
                 }
             }
+
+
         }
 
 

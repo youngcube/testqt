@@ -60,13 +60,13 @@ Column {
             y: 20
             color: 'green'
             Layout.fillWidth: true
-            Layout.preferredHeight: 100
+            Layout.preferredHeight: 50
         }
 
         Rectangle {
             color: 'black'
             Layout.fillWidth: true
-            Layout.preferredHeight: 100
+            Layout.preferredHeight: 50
         }
     }
 
@@ -83,13 +83,31 @@ Column {
             y: 20
             color: 'yellow'
             Layout.fillWidth: true
-            Layout.preferredHeight: 100
+            Layout.preferredHeight: 50
         }
 
         Rectangle {
             color: 'red'
             Layout.fillWidth: true
-            Layout.preferredHeight: 100
+            Layout.preferredHeight: 50
+        }
+
+        Rectangle {
+            color: 'red'
+            Layout.fillWidth: true
+            Layout.preferredHeight: 50
+        }
+
+        Rectangle {
+            color: 'red'
+            Layout.fillWidth: true
+            Layout.preferredHeight: 50
+        }
+
+        Rectangle {
+            color: 'red'
+            Layout.fillWidth: true
+            Layout.preferredHeight: 50
         }
     }
 }

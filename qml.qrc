@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>LeftControlBar.qml</file>
+        <file>SearchBar.qml</file>
     </qresource>
 </RCC>
