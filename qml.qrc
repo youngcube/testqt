@@ -5,5 +5,8 @@
         <file>LeftControlBar.qml</file>
         <file>SearchBar.qml</file>
         <file>LeftTreeView.qml</file>
+        <file>TopControlBar.qml</file>
+        <file>SystemBar.qml</file>
+        <file>DictBar.qml</file>
     </qresource>
 </RCC>

@@ -35,8 +35,7 @@ import QtQuick.Layouts 1.3
 
 Column {
 
-    anchors.fill: parent
-    width: 100
+    width: 60
 
     Rectangle {
         id: avatar
@@ -44,7 +43,13 @@ Column {
         height: 50
         width: parent.width
         Text {
-            text: qsTr("头像")
+
+            anchors.fill: parent
+
+            wrapMode: Text.WordWrap
+            text: qsTr("东晋也曾多次试图北伐，但由于内部不团结，东晋君主表面上支持北伐，实质害怕连半璧江山都失去，导致北伐豪无建树，只有最后篡晋的刘裕收回部分失地。祖逖本有希望恢复旧土，但他被晋元帝及世家大族挟制，郁郁而终。桓温的北伐则被慕容垂击败")
+            color: 'white'
+
         }
     }
 
@@ -91,6 +96,14 @@ Column {
             color: 'red'
             Layout.fillWidth: true
             Layout.preferredHeight: 50
+        }
+
+        Rectangle {
+            color: 'lightgray'
+            Layout.fillWidth: true
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            Layout.preferredHeight: 1
         }
 
         Rectangle {
