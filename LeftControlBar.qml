@@ -36,6 +36,7 @@ import QtQuick.Layouts 1.3
 Column {
 
     anchors.fill: parent
+    width: 100
 
     Rectangle {
         id: avatar

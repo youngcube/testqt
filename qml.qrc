@@ -4,5 +4,6 @@
         <file>qtquickcontrols2.conf</file>
         <file>LeftControlBar.qml</file>
         <file>SearchBar.qml</file>
+        <file>LeftTreeView.qml</file>
     </qresource>
 </RCC>
