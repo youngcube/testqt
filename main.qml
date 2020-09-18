@@ -11,19 +11,19 @@ ApplicationWindow {
     visible: true
     id: window
     title: '测试'
-    width: 600; height: 600
+    width: 900; height: 600
 
 
-//    //去掉窗口标题等
-//    flags: Qt.FramelessWindowHint
-//    //拖动窗口
-//    MouseArea {
-//        anchors.fill: parent
-//        property point lastMousePos: Qt.point(0, 0)
-//        onPressed: { lastMousePos = Qt.point(mouseX, mouseY); }
-//        onMouseXChanged: window.x += (mouseX - lastMousePos.x)
-//        onMouseYChanged: window.y += (mouseY - lastMousePos.y)
-//    }
+    //去掉窗口标题等
+    flags: Qt.FramelessWindowHint
+    //拖动窗口
+    MouseArea {
+        anchors.fill: parent
+        property point lastMousePos: Qt.point(0, 0)
+        onPressed: { lastMousePos = Qt.point(mouseX, mouseY); }
+        onMouseXChanged: window.x += (mouseX - lastMousePos.x)
+        onMouseYChanged: window.y += (mouseY - lastMousePos.y)
+    }
 
     RowLayout {
         id: layout
@@ -50,7 +50,6 @@ ApplicationWindow {
             TopControlBar {
                 Layout.fillWidth: true
                 Layout.fillHeight: false
-                Layout.preferredHeight: 60
             }
 
             SplitView {

@@ -8,5 +8,6 @@
         <file>TopControlBar.qml</file>
         <file>SystemBar.qml</file>
         <file>DictBar.qml</file>
+        <file>LeftControlBarLine.qml</file>
     </qresource>
 </RCC>
