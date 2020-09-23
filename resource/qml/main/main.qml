@@ -13,24 +13,14 @@ ApplicationWindow {
     title: '测试'
     width: 900; height: 600
 
-    //调试逻辑，重新加载qml
-    Loader {
-        id: _loader
-        function reload() {
-            source = "";
-            $QmlEngine.clearCache();
-            source = "main.qml";
-            $QmlEngine.closeMainWindow();
-        }
-        anchors.centerIn: parent
-    }
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-//            _loader.reload();
+    //调试逻辑，按下F5重新加载qml
+    Shortcut {
+        sequence: "F5"
+        onActivated: {
+            window.close()
+            main_app.loadQml()
         }
     }
-
 
     //去掉窗口标题等
 //    flags: Qt.FramelessWindowHint | Qt.Window
@@ -44,8 +34,6 @@ ApplicationWindow {
 //    }
 
 
-
-
     RowLayout {
         id: layout
         anchors.fill: parent
@@ -55,11 +43,6 @@ ApplicationWindow {
         LeftControlBar {
             Layout.fillWidth: false
             Layout.fillHeight: true
-            /****fillWidth设置为true
-                宽度就会在最小值和最大值之间变化，否则就是preferredwidth
-                fillHeight同理
-            ******/
-//            Layout.preferredWidth: 60
         }
 
 

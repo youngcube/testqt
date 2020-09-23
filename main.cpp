@@ -1,6 +1,7 @@
 #include <QGuiApplication>
+#include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include "enhancedqmlapplicationengine.h"
+#include "mainapp.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,20 +9,23 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    EnhancedQmlApplicationEngine *engine = new EnhancedQmlApplicationEngine();
-    engine->rootContext()->setContextProperty("$QmlEngine", engine);
+    QQmlApplicationEngine engine;
+
+    MainApp appp;
+    appp.setEngine(&engine);
+
+    engine.rootContext()->setContextProperty("main_app", &appp);
+#ifdef QT_DEBUG
+    engine.rootContext()->setContextProperty("DEBUG", QVariant(true));
+#else
+    engine.rootContext()->setContextProperty("DEBUG", QVariant(false));
+#endif
 
     const QUrl url(QStringLiteral("qrc:/resource/qml/main/main.qml"));
-
-    QObject::connect(engine, &QQmlApplicationEngine::objectCreated, &app, [url](QObject *obj, const QUrl &objUrl)
+    engine.load(url);
+    if (engine.rootObjects().isEmpty())
     {
-        if (!obj && url == objUrl)
-        {
-            QCoreApplication::exit(-1);
-        }
-
-    }, Qt::QueuedConnection);
-    engine->load(url);
-
+        return -1;
+    }
     return app.exec();
 }

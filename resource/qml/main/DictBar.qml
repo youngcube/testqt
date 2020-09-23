@@ -24,6 +24,7 @@ Item {
                 width: buttonSize
                 height: buttonSize
                 anchors.centerIn: parent
+                fillMode: Image.PreserveAspectFit
                 source: 'qrc:/resource/image/mnu_tool_save_icon@2x.png'
             }
         }
@@ -40,6 +41,7 @@ Item {
                 width: buttonSize
                 height: buttonSize
                 anchors.centerIn: parent
+                fillMode: Image.PreserveAspectFit
                 source: 'qrc:/resource/image/mnu_tool_mark_icon@2x.png'
             }
         }
@@ -56,6 +58,7 @@ Item {
                 width: buttonSize
                 height: buttonSize
                 anchors.centerIn: parent
+                fillMode: Image.PreserveAspectFit
                 source: 'qrc:/resource/image/mnu_tool_voice_icon@2x.png'
             }
         }
@@ -72,6 +75,7 @@ Item {
                 width: buttonSize
                 height: buttonSize
                 anchors.centerIn: parent
+                fillMode: Image.PreserveAspectFit
                 source: 'qrc:/resource/image/mnu_tool_font_icon@2x.png'
             }
         }

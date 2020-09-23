@@ -92,7 +92,7 @@ Item {
         }
     }
 
-    Component {     //代理
+    Component {
         id:delegate
 
         Item {
@@ -107,6 +107,9 @@ Item {
                 anchors.fill: parent
 
                 Text{
+                    Layout.topMargin: 5
+                    Layout.bottomMargin: -3
+
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
                     width: parent.width
@@ -116,6 +119,8 @@ Item {
                     color: 'black'
                 }
                 Text{
+                    Layout.bottomMargin: 5
+
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
                     width: parent.width
@@ -130,7 +135,10 @@ Item {
 
     Component {   //高亮条
         id:highlight
-        Rectangle{color:"lightsteelblue";radius:0}
+        Rectangle {
+            color:"lightsteelblue"
+            radius:0
+        }
     }
 
     ScrollView {

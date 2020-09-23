@@ -12,7 +12,6 @@ Rectangle {
 
         anchors.fill: parent
 
-
         Item {
             height: 70
             width: parent.width
