@@ -15,15 +15,15 @@ ApplicationWindow {
 
 
     //去掉窗口标题等
-    flags: Qt.FramelessWindowHint
-    //拖动窗口
-    MouseArea {
-        anchors.fill: parent
-        property point lastMousePos: Qt.point(0, 0)
-        onPressed: { lastMousePos = Qt.point(mouseX, mouseY); }
-        onMouseXChanged: window.x += (mouseX - lastMousePos.x)
-        onMouseYChanged: window.y += (mouseY - lastMousePos.y)
-    }
+//    flags: Qt.FramelessWindowHint
+//    //拖动窗口
+//    MouseArea {
+//        anchors.fill: parent
+//        property point lastMousePos: Qt.point(0, 0)
+//        onPressed: { lastMousePos = Qt.point(mouseX, mouseY); }
+//        onMouseXChanged: window.x += (mouseX - lastMousePos.x)
+//        onMouseYChanged: window.y += (mouseY - lastMousePos.y)
+//    }
 
     RowLayout {
         id: layout

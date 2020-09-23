@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
-
+import QtQuick.Controls 2.5
 
 Rectangle {
     width: 60
@@ -11,22 +11,22 @@ Rectangle {
         anchors.fill: parent
 
 
-        Rectangle {
-            id: avatar
-            border.color: 'blue'
-            color: 'transparent'
-            height: 50
+        Item {
+            height: 60
             width: parent.width
-            anchors.topMargin: 10
 
-            Text {
+            Button {
+                anchors.topMargin: 10
+                anchors.fill: parent
+                checkable: false
+                checked: false
 
-                anchors.centerIn: parent
-
-                wrapMode: Text.WordWrap
-                text: qsTr("头像")
-                color: 'white'
-
+                Text {
+                    anchors.centerIn: parent
+                    wrapMode: Text.WordWrap
+                    text: qsTr("头像")
+                    color: 'white'
+                }
             }
         }
 
@@ -45,7 +45,7 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 50
                 Text {
-                    text: qsTr("工具")
+                    text: qsTr("设置")
                     anchors.centerIn: parent
                     color: 'white'
                 }
