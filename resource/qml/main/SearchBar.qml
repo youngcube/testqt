@@ -9,34 +9,56 @@ Item {
 
         anchors.fill: parent
 
-        spacing: 10
-
-
+        spacing: 26
 
         TextField {
             id: searchField
-            placeholderText: qsTr("搜索单词")
+            placeholderText: qsTr('搜索单词')
             Layout.fillHeight: false
             Layout.fillWidth: true
-
-
             Layout.preferredHeight: 26
+
+            background: Rectangle {
+                border.color: 'transparent'
+                color: '#EFEFF0'
+            }
         }
 
-        Rectangle {
+        Row {
+            Button {
+                width: 25
+                height: 20
+                background: Rectangle {
+                    border.color: 'transparent'
+                    color: 'transparent'
+                }
+                Image {
+                    width: 20
+                    height: 15
+                    anchors.centerIn: parent
+                    source: 'qrc:/resource/image/mnu_tool_back_icon@2x.png'
+                }
+            }
 
-            Layout.preferredWidth: searchField.height
-            Layout.preferredHeight: searchField.height
+            Item {
+                width: 15
+                height: parent.height
+            }
 
-            border.color: 'blue'
-        }
-
-        Rectangle {
-
-            Layout.preferredWidth: searchField.height
-            Layout.preferredHeight: searchField.height
-
-            border.color: 'blue'
+            Button {
+                width: 25
+                height: 20
+                background: Rectangle {
+                    border.color: 'transparent'
+                    color: 'transparent'
+                }
+                Image {
+                    width: 20
+                    height: 15
+                    anchors.centerIn: parent
+                    source: 'qrc:/resource/image/mnu_tool_forward_icon@2x.png'
+                }
+            }
         }
     }
 

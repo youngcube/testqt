@@ -20,7 +20,7 @@ Row {
     SystemBar {
         id: systembar
         anchors.right: parent.right
-        width: 160
+        width: 130
         height: parent.height
     }
 

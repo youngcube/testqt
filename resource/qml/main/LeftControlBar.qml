@@ -1,10 +1,12 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
+import QtGraphicalEffects 1.12
 
 Rectangle {
     width: 60
     color: '#33373B'
+    property int toolButtonHeight: 60
 
     Column {
 
@@ -12,29 +14,46 @@ Rectangle {
 
 
         Item {
-            height: 60
+            height: 70
             width: parent.width
             id: avatar
 
             Button {
-                anchors.topMargin: 10
-                anchors.fill: parent
+                x: 14
+                y: 20
+                width: 32
+                height: 32
                 checkable: false
                 checked: false
-                icon.source: "resource/image/sidebar_setting_icon@2x.png"
 
-
-                Image {
-                    anchors.fill: parent
-                    source: "qrc:/resource/image/mnu_tool_voice_icon@2x.png"
+                background: Rectangle {
+                    border.color: 'transparent'
+                    color: 'transparent'
                 }
 
-//                Text {
-//                    anchors.centerIn: parent
-//                    wrapMode: Text.WordWrap
-//                    text: qsTr("头像")
-//                    color: 'white'
-//                }
+                Image {
+                    id: avatar_image
+                    anchors.fill: parent
+                    source: 'https://api.frdic.com/api/v3/user/avatar/a1a4183f-398f-11e5-83e4-000c29ffef9b'
+
+                    property bool rounded: true
+                    property bool adapt: true
+
+                    layer.enabled: rounded
+                    layer.effect: OpacityMask {
+                        maskSource: Item {
+                            width: avatar_image.width
+                            height: avatar_image.height
+                            Rectangle {
+                                anchors.centerIn: parent
+                                width: avatar_image.adapt ? avatar_image.width : Math.min(avatar_image.width, avatar_image.height)
+                                height: avatar_image.adapt ? avatar_image.height : width
+//                                radius: Math.min(width, height)
+                                radius: 5
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -46,130 +65,145 @@ Rectangle {
             anchors.right: parent.right
 
             spacing: 0
-//            Rectangle {
-//                x: 0
-//                y: 20
-//                color: 'green'
-//                Layout.fillWidth: true
-//                Layout.preferredHeight: 50
-//                Text {
-//                    text: qsTr("设置")
-//                    anchors.centerIn: parent
-//                    color: 'white'
-//                }
-//            }
-
-            Image {
+            Button {
                 x: 0
                 y: 20
                 Layout.fillWidth: true
-                Layout.preferredHeight: 50
-                source: "qrc:/resource/image/sidebar_setting_icon@2x.png"
+                Layout.preferredHeight: toolButtonHeight
+                background: Rectangle {
+                    border.color: 'transparent'
+                    color: 'transparent'
+                }
+                Image {
+                    width: 25
+                    height: 25
+                    anchors.centerIn: parent
+                    source: 'qrc:/resource/image/sidebar_setting_icon@2x.png'
+                }
             }
 
-            Rectangle {
-                color: 'black'
+
+
+            Button {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 50
-                Text {
-                    text: qsTr("工具20")
+                Layout.preferredHeight: toolButtonHeight
+                background: Rectangle {
+                    border.color: 'transparent'
+                    color: 'transparent'
+                }
+                Image {
+                    width: 25
+                    height: 25
                     anchors.centerIn: parent
-                    color: 'white'
+                    source: 'qrc:/resource/image/sidebar_tool_icon@2x.png'
                 }
             }
         }
 
-        ColumnLayout {
+        Item {
             id: toolbar
             anchors.top: avatar.bottom
             anchors.bottom: bottom_setting.top
             anchors.left: parent.left
             anchors.right: parent.right
 
-            spacing: 0
-//            Rectangle {
-//                x: 0
-//                y: 20
-//                color: 'yellow'
-//                Layout.fillWidth: true
-//                Layout.preferredHeight: 50
-//            }
 
-//            LeftControlBarLine {}
 
-            Rectangle {
-                Text {
-                    text: qsTr("词典")
-                    anchors.centerIn: parent
-                    color: 'white'
+            ColumnLayout {
+
+                anchors.verticalCenter: parent.verticalCenter
+                width: parent.width
+
+                spacing: 0
+
+                //词典
+                Button {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: toolButtonHeight
+                    background: Rectangle {
+                        border.color: 'transparent'
+                        color: 'transparent'
+                    }
+                    Image {
+                        width: 25
+                        height: 25
+                        anchors.centerIn: parent
+                        source: 'qrc:/resource/image/sidebar_dic_icon@2x.png'
+                    }
                 }
-                color: 'transparent'
-                border.color: 'blue'
 
-                Layout.fillWidth: true
-                Layout.preferredHeight: 50
-            }
-
-            LeftControlBarLine {}
+                LeftControlBarLine {}
 
 
-
-            Rectangle {
-                Text {
-                    text: qsTr("百科")
-                    anchors.centerIn: parent
-                    color: 'white'
+                //百科
+                Button {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: toolButtonHeight
+                    background: Rectangle {
+                        border.color: 'transparent'
+                        color: 'transparent'
+                    }
+                    Image {
+                        width: 25
+                        height: 25
+                        anchors.centerIn: parent
+                        source: 'qrc:/resource/image/sidebar_wiki_icon@2x.png'
+                    }
                 }
-                color: 'transparent'
-                border.color: 'blue'
 
-                Layout.fillWidth: true
-                Layout.preferredHeight: 50
-            }
+                LeftControlBarLine {}
 
-            LeftControlBarLine {}
-
-            Rectangle {
-                Text {
-                    text: qsTr("学习")
-                    anchors.centerIn: parent
-                    color: 'white'
+                //学习
+                Button {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: toolButtonHeight
+                    background: Rectangle {
+                        border.color: 'transparent'
+                        color: 'transparent'
+                    }
+                    Image {
+                        width: 25
+                        height: 25
+                        anchors.centerIn: parent
+                        source: 'qrc:/resource/image/sidebar_record_icon@2x.png'
+                    }
                 }
-                color: 'transparent'
-                border.color: 'blue'
 
-                Layout.fillWidth: true
-                Layout.preferredHeight: 50
-            }
+                LeftControlBarLine {}
 
-            LeftControlBarLine {}
-
-            Rectangle {
-                Text {
-                    text: qsTr("翻译")
-                    anchors.centerIn: parent
-                    color: 'white'
+                //翻译
+                Button {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: toolButtonHeight
+                    background: Rectangle {
+                        border.color: 'transparent'
+                        color: 'transparent'
+                    }
+                    Image {
+                        width: 25
+                        height: 25
+                        anchors.centerIn: parent
+                        source: 'qrc:/resource/image/sidebar_tran_icon@2x.png'
+                    }
                 }
-                color: 'transparent'
-                border.color: 'blue'
 
-                Layout.fillWidth: true
-                Layout.preferredHeight: 50
-            }
+                LeftControlBarLine {}
 
-            LeftControlBarLine {}
-
-            Rectangle {
-                Text {
-                    text: qsTr("词库")
-                    anchors.centerIn: parent
-                    color: 'white'
+                //背单词
+                Button {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: toolButtonHeight
+                    background: Rectangle {
+                        border.color: 'transparent'
+                        color: 'transparent'
+                    }
+                    Image {
+                        width: 25
+                        height: 25
+                        anchors.centerIn: parent
+                        source: 'qrc:/resource/image/sidebar_word_icon@2x.png'
+                    }
                 }
-                color: 'transparent'
-                border.color: 'blue'
-
-                Layout.fillWidth: true
-                Layout.preferredHeight: 50
             }
         }
     }

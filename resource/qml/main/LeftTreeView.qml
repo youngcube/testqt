@@ -130,12 +130,12 @@ Item {
 
     Component {   //高亮条
         id:highlight
-        Rectangle{color:"lightsteelblue";radius:5}
+        Rectangle{color:"lightsteelblue";radius:0}
     }
 
     ScrollView {
         anchors.fill: parent
-        ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+        ScrollBar.vertical.policy: ScrollBar.AsNeeded
         clip: true
 
 

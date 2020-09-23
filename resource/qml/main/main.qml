@@ -33,8 +33,8 @@ ApplicationWindow {
 
 
     //去掉窗口标题等
-//    flags: Qt.FramelessWindowHint
-//    //拖动窗口
+//    flags: Qt.FramelessWindowHint | Qt.Window
+    //拖动窗口
 //    MouseArea {
 //        anchors.fill: parent
 //        property point lastMousePos: Qt.point(0, 0)
@@ -42,6 +42,9 @@ ApplicationWindow {
 //        onMouseXChanged: window.x += (mouseX - lastMousePos.x)
 //        onMouseYChanged: window.y += (mouseY - lastMousePos.y)
 //    }
+
+
+
 
     RowLayout {
         id: layout
@@ -70,11 +73,26 @@ ApplicationWindow {
                 Layout.fillHeight: false
             }
 
+            //分割线
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 1
+                color: '#EFEFF0'
+            }
+
             SplitView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
                 orientation: Qt.Horizontal
+
+                //中间的分隔条样式
+                handle: Rectangle {
+                    implicitWidth: 1
+                    implicitHeight: 1
+                    color: SplitHandle.pressed ? "#EFEFF0"
+                            : (SplitHandle.hovered ? Qt.lighter("#EFEFF0", 1.1) : "#EFEFF0")
+                }
 
                 //单词列表
                 LeftTreeView {
