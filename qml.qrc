@@ -1,13 +1,31 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>LeftControlBar.qml</file>
-        <file>SearchBar.qml</file>
-        <file>LeftTreeView.qml</file>
-        <file>TopControlBar.qml</file>
-        <file>SystemBar.qml</file>
-        <file>DictBar.qml</file>
-        <file>LeftControlBarLine.qml</file>
+        <file>resource/qml/main/main.qml</file>
+        <file>resource/qml/main/LeftControlBar.qml</file>
+        <file>resource/qml/main/SearchBar.qml</file>
+        <file>resource/qml/main/LeftTreeView.qml</file>
+        <file>resource/qml/main/TopControlBar.qml</file>
+        <file>resource/qml/main/SystemBar.qml</file>
+        <file>resource/qml/main/DictBar.qml</file>
+        <file>resource/qml/main/LeftControlBarLine.qml</file>
+        <file>resource/image/mnu_tool_voice_icon@2x.png</file>
+        <file>resource/image/mnu_tool_back_icon@2x.png</file>
+        <file>resource/image/mnu_tool_close_icon@2x.png</file>
+        <file>resource/image/mnu_tool_font_icon@2x.png</file>
+        <file>resource/image/mnu_tool_forward_icon@2x.png</file>
+        <file>resource/image/mnu_tool_mark_icon@2x.png</file>
+        <file>resource/image/mnu_tool_maximize_icon@2x.png</file>
+        <file>resource/image/mnu_tool_minimize_icon@2x.png</file>
+        <file>resource/image/mnu_tool_more_icon@2x.png</file>
+        <file>resource/image/mnu_tool_opinion_icon@2x.png</file>
+        <file>resource/image/mnu_tool_save_icon@2x.png</file>
+        <file>resource/image/sidebar_dic_icon@2x.png</file>
+        <file>resource/image/sidebar_record_icon@2x.png</file>
+        <file>resource/image/sidebar_setting_icon@2x.png</file>
+        <file>resource/image/sidebar_tool_icon@2x.png</file>
+        <file>resource/image/sidebar_tran_icon@2x.png</file>
+        <file>resource/image/sidebar_wiki_icon@2x.png</file>
+        <file>resource/image/sidebar_word_icon@2x.png</file>
     </qresource>
 </RCC>

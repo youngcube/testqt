@@ -14,19 +14,27 @@ Rectangle {
         Item {
             height: 60
             width: parent.width
+            id: avatar
 
             Button {
                 anchors.topMargin: 10
                 anchors.fill: parent
                 checkable: false
                 checked: false
+                icon.source: "resource/image/sidebar_setting_icon@2x.png"
 
-                Text {
-                    anchors.centerIn: parent
-                    wrapMode: Text.WordWrap
-                    text: qsTr("头像")
-                    color: 'white'
+
+                Image {
+                    anchors.fill: parent
+                    source: "qrc:/resource/image/mnu_tool_voice_icon@2x.png"
                 }
+
+//                Text {
+//                    anchors.centerIn: parent
+//                    wrapMode: Text.WordWrap
+//                    text: qsTr("头像")
+//                    color: 'white'
+//                }
             }
         }
 
@@ -38,17 +46,25 @@ Rectangle {
             anchors.right: parent.right
 
             spacing: 0
-            Rectangle {
+//            Rectangle {
+//                x: 0
+//                y: 20
+//                color: 'green'
+//                Layout.fillWidth: true
+//                Layout.preferredHeight: 50
+//                Text {
+//                    text: qsTr("设置")
+//                    anchors.centerIn: parent
+//                    color: 'white'
+//                }
+//            }
+
+            Image {
                 x: 0
                 y: 20
-                color: 'green'
                 Layout.fillWidth: true
                 Layout.preferredHeight: 50
-                Text {
-                    text: qsTr("设置")
-                    anchors.centerIn: parent
-                    color: 'white'
-                }
+                source: "qrc:/resource/image/sidebar_setting_icon@2x.png"
             }
 
             Rectangle {
@@ -56,7 +72,7 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 50
                 Text {
-                    text: qsTr("工具")
+                    text: qsTr("工具20")
                     anchors.centerIn: parent
                     color: 'white'
                 }

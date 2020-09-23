@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 import QtQuick.Dialogs 1.2
 import QtWebEngine 1.8
-
+import QtQuick.Window 2.2
 
 ApplicationWindow {
 
@@ -12,6 +12,24 @@ ApplicationWindow {
     id: window
     title: '测试'
     width: 900; height: 600
+
+    //调试逻辑，重新加载qml
+    Loader {
+        id: _loader
+        function reload() {
+            source = "";
+            $QmlEngine.clearCache();
+            source = "main.qml";
+            $QmlEngine.closeMainWindow();
+        }
+        anchors.centerIn: parent
+    }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+//            _loader.reload();
+        }
+    }
 
 
     //去掉窗口标题等
@@ -67,16 +85,9 @@ ApplicationWindow {
                 }
 
                 //解释界面
-                Rectangle {
+                Item {
                     id: centerItem
                     SplitView.fillWidth: true
-                    color: "lightgray"
-                    Text {
-                        text: "View 2"
-                        anchors.left: parent
-                        anchors.top: parent
-                    }
-
                     WebEngineView {
                         anchors.fill: parent
                         url: "http://dict.eudic.net/"
