@@ -1,5 +1,5 @@
 QT += quick core gui widgets network multimedia gui-private printsupport
-
+win32: QT += winextras
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -7,6 +7,8 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 win32: LIBS += -L"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib" -ladvapi32 -luser32
+
+PRECOMPILED_HEADER = src/eudic_prefixheader.h
 
 SOURCES += \
         src/main.cpp \
@@ -31,6 +33,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    src/eudic_prefixheader.h \
     src/mainapp.h \
     src/FramelessHelper/windowhandler.h \
     src/FramelessHelper/basicframelesshelper.h \
