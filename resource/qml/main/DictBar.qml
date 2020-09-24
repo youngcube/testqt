@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
+import '../components'
 
 Item {
 
@@ -13,13 +14,9 @@ Item {
         Layout.alignment: Qt.AlignRight
 
         //保存
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize
@@ -30,13 +27,9 @@ Item {
         }
 
         //收藏
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize
@@ -47,13 +40,9 @@ Item {
         }
 
         //发音
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize
@@ -64,13 +53,9 @@ Item {
         }
 
         //字体
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize

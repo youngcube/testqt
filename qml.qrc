@@ -27,5 +27,6 @@
         <file>resource/image/sidebar_tran_icon@2x.png</file>
         <file>resource/image/sidebar_wiki_icon@2x.png</file>
         <file>resource/image/sidebar_word_icon@2x.png</file>
+        <file>resource/qml/components/CommonButton.qml</file>
     </qresource>
 </RCC>

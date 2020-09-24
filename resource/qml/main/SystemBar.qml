@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
-
+import '../components'
 Item {
     property int containerSize: 26
     property int buttonSize: 15
@@ -12,13 +12,9 @@ Item {
         Layout.alignment: Qt.AlignRight
 
         //反馈
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize
@@ -30,13 +26,9 @@ Item {
         }
 
         //最小化
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize
@@ -47,13 +39,9 @@ Item {
         }
 
         //最大化
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize
@@ -64,13 +52,9 @@ Item {
         }
 
         //关闭
-        Button {
+        CommonButton {
             Layout.preferredWidth: containerSize
             Layout.preferredHeight: containerSize
-            background: Rectangle {
-                border.color: 'transparent'
-                color: 'transparent'
-            }
             Image {
                 width: buttonSize
                 height: buttonSize

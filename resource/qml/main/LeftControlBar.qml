@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.12
+import '../components'
 
 Rectangle {
     width: 60
@@ -70,13 +71,9 @@ Rectangle {
                 spacing: 0
 
                 //词典
-                Button {
+                CommonButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: toolButtonHeight
-                    background: Rectangle {
-                        border.color: 'transparent'
-                        color: 'transparent'
-                    }
                     Image {
                         width: 25
                         height: 25
@@ -89,13 +86,9 @@ Rectangle {
 
 
                 //百科
-                Button {
+                CommonButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: toolButtonHeight
-                    background: Rectangle {
-                        border.color: 'transparent'
-                        color: 'transparent'
-                    }
                     Image {
                         width: 25
                         height: 25
@@ -107,13 +100,9 @@ Rectangle {
                 LeftControlBarLine {}
 
                 //学习
-                Button {
+                CommonButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: toolButtonHeight
-                    background: Rectangle {
-                        border.color: 'transparent'
-                        color: 'transparent'
-                    }
                     Image {
                         width: 25
                         height: 25
@@ -125,13 +114,9 @@ Rectangle {
                 LeftControlBarLine {}
 
                 //翻译
-                Button {
+                CommonButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: toolButtonHeight
-                    background: Rectangle {
-                        border.color: 'transparent'
-                        color: 'transparent'
-                    }
                     Image {
                         width: 25
                         height: 25
@@ -143,13 +128,9 @@ Rectangle {
                 LeftControlBarLine {}
 
                 //背单词
-                Button {
+                CommonButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: toolButtonHeight
-                    background: Rectangle {
-                        border.color: 'transparent'
-                        color: 'transparent'
-                    }
                     Image {
                         width: 25
                         height: 25
@@ -166,15 +147,11 @@ Rectangle {
             Layout.preferredWidth: parent.width
 
             spacing: 0
-            Button {
+            CommonButton {
                 x: 0
                 y: 20
                 Layout.fillWidth: true
                 Layout.preferredHeight: toolButtonHeight
-                background: Rectangle {
-                    border.color: 'transparent'
-                    color: 'transparent'
-                }
                 Image {
                     width: 25
                     height: 25
@@ -183,13 +160,9 @@ Rectangle {
                 }
             }
 
-            Button {
+            CommonButton {
                 Layout.fillWidth: true
                 Layout.preferredHeight: toolButtonHeight
-                background: Rectangle {
-                    border.color: 'transparent'
-                    color: 'transparent'
-                }
                 Image {
                     width: 25
                     height: 25
