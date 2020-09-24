@@ -8,14 +8,15 @@ Rectangle {
     color: '#33373B'
     property int toolButtonHeight: 60
 
-    Column {
+    ColumnLayout {
 
         anchors.fill: parent
+        spacing: 0
 
+        //顶部头像
         Item {
-            height: 70
-            width: parent.width
-            id: avatar
+            Layout.preferredHeight: 70
+            Layout.preferredWidth: parent.width
 
             Button {
                 x: 14
@@ -56,57 +57,10 @@ Rectangle {
             }
         }
 
-        ColumnLayout {
-            id: bottom_setting
-    //        anchors.top: toolbar.bottom
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-
-            spacing: 0
-            Button {
-                x: 0
-                y: 20
-                Layout.fillWidth: true
-                Layout.preferredHeight: toolButtonHeight
-                background: Rectangle {
-                    border.color: 'transparent'
-                    color: 'transparent'
-                }
-                Image {
-                    width: 25
-                    height: 25
-                    anchors.centerIn: parent
-                    source: 'qrc:/resource/image/sidebar_setting_icon@2x.png'
-                }
-            }
-
-
-
-            Button {
-                Layout.fillWidth: true
-                Layout.preferredHeight: toolButtonHeight
-                background: Rectangle {
-                    border.color: 'transparent'
-                    color: 'transparent'
-                }
-                Image {
-                    width: 25
-                    height: 25
-                    anchors.centerIn: parent
-                    source: 'qrc:/resource/image/sidebar_tool_icon@2x.png'
-                }
-            }
-        }
-
+        //中部功能
         Item {
-            id: toolbar
-            anchors.top: avatar.bottom
-            anchors.bottom: bottom_setting.top
-            anchors.left: parent.left
-            anchors.right: parent.right
-
-
+            Layout.preferredWidth: parent.width
+            Layout.fillHeight: true
 
             ColumnLayout {
 
@@ -202,6 +156,45 @@ Rectangle {
                         anchors.centerIn: parent
                         source: 'qrc:/resource/image/sidebar_word_icon@2x.png'
                     }
+                }
+            }
+        }
+
+        //底部工具
+        ColumnLayout {
+            Layout.preferredHeight: toolButtonHeight * 2
+            Layout.preferredWidth: parent.width
+
+            spacing: 0
+            Button {
+                x: 0
+                y: 20
+                Layout.fillWidth: true
+                Layout.preferredHeight: toolButtonHeight
+                background: Rectangle {
+                    border.color: 'transparent'
+                    color: 'transparent'
+                }
+                Image {
+                    width: 25
+                    height: 25
+                    anchors.centerIn: parent
+                    source: 'qrc:/resource/image/sidebar_setting_icon@2x.png'
+                }
+            }
+
+            Button {
+                Layout.fillWidth: true
+                Layout.preferredHeight: toolButtonHeight
+                background: Rectangle {
+                    border.color: 'transparent'
+                    color: 'transparent'
+                }
+                Image {
+                    width: 25
+                    height: 25
+                    anchors.centerIn: parent
+                    source: 'qrc:/resource/image/sidebar_tool_icon@2x.png'
                 }
             }
         }

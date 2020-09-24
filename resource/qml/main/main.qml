@@ -55,7 +55,7 @@ ApplicationWindow {
             //顶部搜索等
             TopControlBar {
                 id: top_control_bar
-                height: topTitleBarHeight
+                Layout.preferredHeight: topTitleBarHeight
                 Layout.fillWidth: true
                 Layout.fillHeight: false
 
@@ -79,6 +79,7 @@ ApplicationWindow {
             //分割线
             Rectangle {
                 Layout.fillWidth: true
+                Layout.fillHeight: false
                 Layout.preferredHeight: 1
                 color: '#EFEFF0'
             }
