@@ -1,29 +1,24 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
 
-Row {
+RowLayout {
+    spacing: 0
+
     SearchBar {
-        id: searchbar
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
+        Layout.fillHeight: true
+        Layout.preferredWidth: 300
+    }
 
-        anchors.leftMargin: 19
-        anchors.rightMargin: 19
-
-        width: 300
+    Item {
+        Layout.fillHeight: true
+        Layout.fillWidth: true
+        DictBar {
+            anchors.centerIn: parent
+        }
     }
 
     SystemBar {
-        id: systembar
-        anchors.right: parent.right
-        width: 130
-        height: parent.height
-    }
-
-    DictBar {
-        anchors.left: searchbar.right
-        anchors.right: systembar.left
-        height: parent.height
+        Layout.fillHeight: true
+        Layout.preferredWidth: 130
     }
 }

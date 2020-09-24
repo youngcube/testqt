@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
 
 Item {
-
     property int containerSize: 26
     property int buttonSize: 15
 

@@ -54,14 +54,12 @@ ApplicationWindow {
 
             //顶部搜索等
             TopControlBar {
-                id: top_control_bar
                 Layout.preferredHeight: topTitleBarHeight
-                Layout.fillWidth: true
                 Layout.fillHeight: false
+                Layout.fillWidth: true
 
                 //拖动窗口
                 MouseArea {
-                    anchors.fill: parent
                     property point pressPos
                     onPressed: pressPos = Qt.point(mouse.x, mouse.y)
                     onPositionChanged: {
@@ -75,6 +73,8 @@ ApplicationWindow {
                     }
                 }
             }
+
+
 
             //分割线
             Rectangle {

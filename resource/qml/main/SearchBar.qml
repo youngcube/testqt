@@ -7,6 +7,8 @@ Item {
 
     RowLayout {
 
+        anchors.leftMargin: 19
+        anchors.rightMargin: 19
         anchors.fill: parent
 
         spacing: 26
