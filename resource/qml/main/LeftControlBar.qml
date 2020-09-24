@@ -5,7 +5,6 @@ import QtGraphicalEffects 1.12
 import '../components'
 
 Rectangle {
-    width: 60
     color: '#33373B'
     property int toolButtonHeight: 60
 
@@ -19,18 +18,12 @@ Rectangle {
             Layout.preferredHeight: 70
             Layout.preferredWidth: parent.width
 
-            Button {
+            CommonButton {
                 x: 14
                 y: 20
                 width: 32
                 height: 32
-                checkable: false
-                checked: false
-
-                background: Rectangle {
-                    border.color: 'transparent'
-                    color: 'transparent'
-                }
+                borderRadius: 5
 
                 Image {
                     id: avatar_image

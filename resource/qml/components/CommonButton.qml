@@ -11,7 +11,7 @@ Item {
     property color pressColor: "slategray"
     property int fontSize: 10
     property int borderWidth: 0
-    property int borderRadius: 0
+    property int borderRadius: 5
     scale: state === "Pressed" ? 0.96 : 1.0
     onEnabledChanged: state = ""
     signal clicked

@@ -42,9 +42,29 @@ ApplicationWindow {
         spacing: 0
 
         //左侧工具条
-        LeftControlBar {
+        Item {
+            Layout.preferredWidth: 60
             Layout.fillWidth: false
             Layout.fillHeight: true
+
+            MouseArea {
+                anchors.fill: parent
+                property point pressPos
+                onPressed: pressPos = Qt.point(mouse.x, mouse.y)
+                onPositionChanged: {
+                    if (main_window.visibility === Window.Windowed) {
+                        main_window.x += mouse.x - pressPos.x
+                        main_window.y += mouse.y - pressPos.y
+                    }
+                }
+                onDoubleClicked: {
+
+                }
+            }
+
+            LeftControlBar {
+                anchors.fill: parent
+            }
         }
 
 
@@ -52,13 +72,14 @@ ApplicationWindow {
         ColumnLayout {
             spacing: 0
 
-            //顶部搜索等
-            TopControlBar {
+            Item {
+
                 Layout.preferredHeight: topTitleBarHeight
                 Layout.fillHeight: false
                 Layout.fillWidth: true
 
-                //拖动窗口
+                //todo: 抽象出来
+                //拖动窗口，注意MouseArea有优先级，后面覆盖前面，因此需要放到最上面，同时与顶部控制条同一层级
                 MouseArea {
                     anchors.fill: parent
                     property point pressPos
@@ -73,8 +94,12 @@ ApplicationWindow {
 
                     }
                 }
-            }
 
+                //顶部搜索等
+                TopControlBar {
+                    anchors.fill: parent
+                }
+            }
 
 
             //分割线
