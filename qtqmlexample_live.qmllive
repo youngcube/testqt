@@ -1,7 +1,0 @@
-{
-    "imports": [
-        "."
-    ],
-    "main": "resource/qml/main/main.qml",
-    "workspace": "."
-}
