@@ -8,10 +8,11 @@ import FramelessWindowHelper 1.0
 
 ApplicationWindow {
 
+    property int topTitleBarHeight: 60
 
     visible: true
     id: main_window
-    title: '测试'
+    title: '欧路词典'
     width: 900; height: 600
 
     //调试逻辑，按下F5重新加载qml
@@ -25,17 +26,13 @@ ApplicationWindow {
 
     //去掉窗口标题等
     flags: Qt.FramelessWindowHint | Qt.Window
-    //拖动窗口
-//    MouseArea {
-//        anchors.fill: parent
-//        property point lastMousePos: Qt.point(0, 0)
-//        onPressed: { lastMousePos = Qt.point(mouseX, mouseY); }
-//        onMouseXChanged: window.x += (mouseX - lastMousePos.x)
-//        onMouseYChanged: window.y += (mouseY - lastMousePos.y)
-//    }
 
     FramelessWindowHelper {
-
+        Component.onCompleted: {
+            //设置顶部按钮，避免按下按钮与双击放大冲突
+//            addTitleObject(button)
+            setTitleHeight(topTitleBarHeight)
+        }
     }
 
 
@@ -57,7 +54,7 @@ ApplicationWindow {
 
             //顶部搜索等
             TopControlBar {
-                id: top_control_bar
+                height: topTitleBarHeight
                 Layout.fillWidth: true
                 Layout.fillHeight: false
 
