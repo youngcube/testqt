@@ -5,6 +5,20 @@ Row {
     id: layout
     height: 60
 
+    //拖动窗口
+    MouseArea {
+        anchors.fill: parent
+        property point pressPos
+        onPressed: pressPos = Qt.point(mouse.x, mouse.y)
+        onPositionChanged: {
+            if (root.visibility === Window.Windowed) {
+                root.x += mouse.x - pressPos.x
+                root.y += mouse.y - pressPos.y
+            }
+        }
+        onDoubleClicked: maxButton.clicked()
+    }
+
     SearchBar {
         id: searchbar
         anchors.left: parent.left

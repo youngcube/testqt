@@ -36,6 +36,7 @@ Item {
                     width: 20
                     height: 15
                     anchors.centerIn: parent
+                    fillMode: Image.PreserveAspectFit
                     source: 'qrc:/resource/image/mnu_tool_back_icon@2x.png'
                 }
             }
@@ -56,6 +57,7 @@ Item {
                     width: 20
                     height: 15
                     anchors.centerIn: parent
+                    fillMode: Image.PreserveAspectFit
                     source: 'qrc:/resource/image/mnu_tool_forward_icon@2x.png'
                 }
             }

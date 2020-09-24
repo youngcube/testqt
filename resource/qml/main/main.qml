@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Dialogs 1.2
 import QtWebEngine 1.8
 import QtQuick.Window 2.2
+import FramelessWindowHelper 1.0
 
 ApplicationWindow {
 
@@ -23,7 +24,7 @@ ApplicationWindow {
     }
 
     //去掉窗口标题等
-//    flags: Qt.FramelessWindowHint | Qt.Window
+    flags: Qt.FramelessWindowHint | Qt.Window
     //拖动窗口
 //    MouseArea {
 //        anchors.fill: parent
@@ -32,6 +33,10 @@ ApplicationWindow {
 //        onMouseXChanged: window.x += (mouseX - lastMousePos.x)
 //        onMouseYChanged: window.y += (mouseY - lastMousePos.y)
 //    }
+
+    FramelessWindowHelper {
+
+    }
 
 
     RowLayout {
