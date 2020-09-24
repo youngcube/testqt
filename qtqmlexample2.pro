@@ -10,14 +10,33 @@ win32: LIBS += -L"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib" -ladv
 
 PRECOMPILED_HEADER = src/eudic_prefixheader.h
 
+HEADERS += \
+    src/eudic_prefixheader.h \
+    src/mainapp.h \
+    src/FramelessHelper/basicframelesshelper.h \
+    src/FramelessHelper/framelesswidgethelper.h \
+    src/FramelessHelper/framelesswindowhelper.h \
+
+win32: HEADERS += \
+                src/FramelessHelper/nativeeventfilter.h
+
+else: HEADERS += \
+                src/FramelessHelper/windowhandler.h
+
 SOURCES += \
         src/main.cpp \
         src/mainapp.cpp \
-        src/FramelessHelper/windowhandler.cpp \
         src/FramelessHelper/basicframelesshelper.cpp \
         src/FramelessHelper/framelesswidgethelper.cpp \
         src/FramelessHelper/framelesswindowhelper.cpp \
-        src/FramelessHelper/nativeeventfilter.cpp
+
+win32: SOURCES += \
+                src/FramelessHelper/nativeeventfilter.cpp
+
+else: SOURCES += \
+                src/FramelessHelper/windowhandler.cpp
+
+
 
 RESOURCES += qml.qrc
 
@@ -32,11 +51,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    src/eudic_prefixheader.h \
-    src/mainapp.h \
-    src/FramelessHelper/windowhandler.h \
-    src/FramelessHelper/basicframelesshelper.h \
-    src/FramelessHelper/framelesswidgethelper.h \
-    src/FramelessHelper/framelesswindowhelper.h \
-    src/FramelessHelper/nativeeventfilter.h
+
