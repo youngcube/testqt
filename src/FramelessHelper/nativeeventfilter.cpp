@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <QScreen>
 #include <QtWin>
-#include "basicFramelessHelper.h"
+#include "basicframelesshelper.h"
 
 void NativeEventFilter::deliver(QWindow *window, BasicFramelessHelper *helper)
 {
@@ -24,7 +24,9 @@ void NativeEventFilter::deliver(QWindow *window, BasicFramelessHelper *helper)
             helpers.insert(wid, helper);
             // 添加阴影效果并且使得缩放时有透明的效果
             if (QtWin::isCompositionEnabled())
+            {
                 QtWin::extendFrameIntoClientArea(window, 1, 1, 1, 1);
+            }
         }
     }
 

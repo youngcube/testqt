@@ -7,6 +7,10 @@ int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
+    //https://github.com/qtdevs/FramelessHelper/issues/7 避免黑色边框
+    //https://bugreports.qt.io/browse/QTBUG-40485?focusedCommentId=376505&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-376505
+    QCoreApplication::setAttribute(Qt::AA_UseOpenGLES);
+
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
