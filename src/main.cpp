@@ -13,6 +13,11 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+#ifdef Q_OS_WIN
+    QFont defaultFont("Microsoft YaHei", 9, QFont::Normal, false);
+    QGuiApplication::setFont(defaultFont);
+#endif
+
     QQmlApplicationEngine engine;
 
     MainApp appp;

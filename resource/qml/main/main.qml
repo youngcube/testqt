@@ -30,7 +30,7 @@ ApplicationWindow {
     FramelessWindowHelper {
         Component.onCompleted: {
             //设置顶部按钮，避免按下按钮与双击放大冲突
-//            addTitleObject(button)
+//            addTitleObject(top_control_bar)
             setTitleHeight(topTitleBarHeight)
         }
     }
@@ -54,6 +54,7 @@ ApplicationWindow {
 
             //顶部搜索等
             TopControlBar {
+                id: top_control_bar
                 height: topTitleBarHeight
                 Layout.fillWidth: true
                 Layout.fillHeight: false
