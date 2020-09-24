@@ -1,4 +1,6 @@
 #include "windowhandler.h"
+
+#ifndef Q_OS_WIN
 #include <QQuickWindow>
 #include <QEvent>
 #include <QMouseEvent>
@@ -179,3 +181,5 @@ void WindowHandler::handleMouseReleaseEvent(QMouseEvent *e)
     leftButtonPress = false;
     resizing = false;
 }
+
+#endif

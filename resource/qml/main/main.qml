@@ -10,7 +10,7 @@ ApplicationWindow {
 
 
     visible: true
-    id: window
+    id: main_window
     title: '测试'
     width: 900; height: 600
 
@@ -18,7 +18,7 @@ ApplicationWindow {
     Shortcut {
         sequence: "F5"
         onActivated: {
-            window.close()
+            main_window.close()
             main_app.loadQml()
         }
     }
@@ -57,8 +57,25 @@ ApplicationWindow {
 
             //顶部搜索等
             TopControlBar {
+                id: top_control_bar
                 Layout.fillWidth: true
                 Layout.fillHeight: false
+
+                //拖动窗口
+                MouseArea {
+                    anchors.fill: parent
+                    property point pressPos
+                    onPressed: pressPos = Qt.point(mouse.x, mouse.y)
+                    onPositionChanged: {
+                        if (main_window.visibility === Window.Windowed) {
+                            main_window.x += mouse.x - pressPos.x
+                            main_window.y += mouse.y - pressPos.y
+                        }
+                    }
+                    onDoubleClicked: {
+
+                    }
+                }
             }
 
             //分割线

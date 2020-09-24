@@ -1,6 +1,6 @@
 #ifndef WINDOWHANDLER_H
 #define WINDOWHANDLER_H
-
+#ifndef Q_OS_WIN
 class QQuickWindow;
 class QEvent;
 class QMouseEvent;
@@ -51,5 +51,7 @@ private:
     int _edgeSize;
     QQuickWindow *window;
 };
+
+#endif
 
 #endif // WINDOWHANDLER_H
