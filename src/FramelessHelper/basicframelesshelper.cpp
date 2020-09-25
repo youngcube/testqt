@@ -26,7 +26,7 @@ BasicFramelessHelper::~BasicFramelessHelper()
 #endif
 }
 
-void BasicFramelessHelper::addTitleObjects(const QObjectList &objs)
+void BasicFramelessHelper::addTitleObjects(const QList<QObject *> &objs)
 {
     m_objects.append(objs);
 }

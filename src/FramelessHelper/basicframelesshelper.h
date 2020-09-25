@@ -23,7 +23,7 @@ public:
 #endif
 
     // for the title bar which object can be pressed
-    Q_INVOKABLE void addTitleObjects(const QObjectList &objs);
+    Q_INVOKABLE void addTitleObjects(const QList<QObject *> &objs);
     Q_INVOKABLE void addTitleObject(QObject *obj);
 
     int titleHeight() const {
@@ -92,7 +92,7 @@ private:
 
 protected:
     QWindow *m_window;
-    QObjectList m_objects;
+    QList<QObject *> m_objects;
     int m_titleHeight;
     int m_leftResizeMargin;
     int m_topResizeMargin;

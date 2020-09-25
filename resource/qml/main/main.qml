@@ -56,7 +56,7 @@ ApplicationWindow {
 
         Component.onCompleted: {
             //设置顶部按钮，避免按下按钮与双击放大冲突，这里需要一段延迟
-            delay(1500, function() {
+            delay(1000, function() {
                 var list = [
                             systemBar_closeButton,
                             systemBar_maximumButton,
