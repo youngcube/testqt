@@ -43,51 +43,23 @@ ApplicationWindow {
 
     flags: Qt.platform.os !== 'osx' ? Qt.FramelessWindowHint | Qt.Window : Qt.Window
 
-    RowLayout {
-        id: layout
+    //为了支持windows下的frameless，外面再套一层，因为最大化后边缘会被屏幕裁掉
+    Item {
         anchors.fill: parent
-        spacing: 0
+        anchors.margins: (main_window.visibility === ApplicationWindow.Maximized && Qt.platform.os !== 'osx') ? 8 : 0
 
-        //左侧工具条
-        Item {
-            id: test123
-            Layout.preferredWidth: 70
-            Layout.fillWidth: false
-            Layout.fillHeight: true
-
-            MouseArea {
-                anchors.fill: parent
-                property point pressPos
-                onPressed: pressPos = Qt.point(mouse.x, mouse.y)
-                onPositionChanged: {
-                    if (main_window.visibility === Window.Windowed) {
-                        main_window.x += mouse.x - pressPos.x
-                        main_window.y += mouse.y - pressPos.y
-                    }
-                }
-                onDoubleClicked: {
-
-                }
-            }
-
-            LeftControlBar {
-                anchors.fill: parent
-            }
-        }
-
-
-        //右侧
-        ColumnLayout {
+        RowLayout {
+            id: layout
+            anchors.fill: parent
             spacing: 0
 
+            //左侧工具条
             Item {
+                id: test123
+                Layout.preferredWidth: 70
+                Layout.fillWidth: false
+                Layout.fillHeight: true
 
-                Layout.preferredHeight: topTitleBarHeight
-                Layout.fillHeight: false
-                Layout.fillWidth: true
-
-                //todo: 抽象出来
-                //拖动窗口，注意MouseArea有优先级，后面覆盖前面，因此需要放到最上面，同时与顶部控制条同一层级
                 MouseArea {
                     anchors.fill: parent
                     property point pressPos
@@ -103,50 +75,84 @@ ApplicationWindow {
                     }
                 }
 
-                //顶部搜索等
-                TopControlBar {
+                LeftControlBar {
                     anchors.fill: parent
                 }
             }
 
 
-            //分割线
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.fillHeight: false
-                Layout.preferredHeight: 1
-                color: '#EFEFF0'
-            }
+            //右侧
+            ColumnLayout {
+                spacing: 0
 
-            SplitView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                orientation: Qt.Horizontal
-
-                //中间的分隔条样式
-                handle: Rectangle {
-                    implicitWidth: 1
-                    implicitHeight: 1
-                    color: SplitHandle.pressed ? "#EFEFF0"
-                            : (SplitHandle.hovered ? Qt.lighter("#EFEFF0", 1.1) : "#EFEFF0")
-                }
-
-                //单词列表
-                LeftTreeView {
-                    SplitView.maximumWidth: 400
-                    SplitView.preferredWidth: 150
-                    SplitView.minimumWidth: 50
-                    SplitView.fillHeight: true
-                }
-
-                //解释界面
                 Item {
-                    id: centerItem
-                    SplitView.fillWidth: true
-                    WebEngineView {
+
+                    Layout.preferredHeight: topTitleBarHeight
+                    Layout.fillHeight: false
+                    Layout.fillWidth: true
+
+                    //todo: 抽象出来
+                    //拖动窗口，注意MouseArea有优先级，后面覆盖前面，因此需要放到最上面，同时与顶部控制条同一层级
+                    MouseArea {
                         anchors.fill: parent
-                        url: "http://dict.eudic.net/"
+                        property point pressPos
+                        onPressed: pressPos = Qt.point(mouse.x, mouse.y)
+                        onPositionChanged: {
+                            if (main_window.visibility === Window.Windowed) {
+                                main_window.x += mouse.x - pressPos.x
+                                main_window.y += mouse.y - pressPos.y
+                            }
+                        }
+                        onDoubleClicked: {
+
+                        }
+                    }
+
+                    //顶部搜索等
+                    TopControlBar {
+                        anchors.fill: parent
+                    }
+                }
+
+
+                //分割线
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: false
+                    Layout.preferredHeight: 1
+                    color: '#EFEFF0'
+                }
+
+                SplitView {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    orientation: Qt.Horizontal
+
+                    //中间的分隔条样式
+                    handle: Rectangle {
+                        implicitWidth: 1
+                        implicitHeight: 1
+                        color: SplitHandle.pressed ? "#EFEFF0"
+                                : (SplitHandle.hovered ? Qt.lighter("#EFEFF0", 1.1) : "#EFEFF0")
+                    }
+
+                    //单词列表
+                    LeftTreeView {
+                        SplitView.maximumWidth: 400
+                        SplitView.preferredWidth: 150
+                        SplitView.minimumWidth: 50
+                        SplitView.fillHeight: true
+                    }
+
+                    //解释界面
+                    Item {
+                        id: centerItem
+                        SplitView.fillWidth: true
+                        WebEngineView {
+                            anchors.fill: parent
+                            url: "http://dict.eudic.net/"
+                        }
                     }
                 }
             }
