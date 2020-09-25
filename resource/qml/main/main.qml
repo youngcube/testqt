@@ -41,6 +41,7 @@ ApplicationWindow {
         }
     }
 
+    flags: Qt.platform.os !== 'osx' ? Qt.FramelessWindowHint | Qt.Window : Qt.Window
 
     RowLayout {
         id: layout
