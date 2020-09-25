@@ -3,6 +3,9 @@
 #include <QQmlContext>
 #include "mainapp.h"
 #include "FramelessHelper/framelesswindowhelper.h"
+#ifdef Q_OS_MAC
+#include "macutilsmanager.h"
+#endif
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -38,5 +41,10 @@ int main(int argc, char *argv[])
     {
         return -1;
     }
+
+#ifdef Q_OS_MAC
+    MacUtilsManager::removeTitlebarFromWindow();
+#endif
+
     return app.exec();
 }

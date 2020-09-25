@@ -1,5 +1,7 @@
 #include "mainapp.h"
-
+#ifdef Q_OS_MAC
+#include "macutilsmanager.h"
+#endif
 MainApp::MainApp(QObject *parent): QObject (parent)
 {
 
@@ -25,4 +27,8 @@ void MainApp::loadQml()
     m_engine->trimComponentCache();
 
     m_engine->load(url);
+
+#ifdef Q_OS_MAC
+    MacUtilsManager::removeTitlebarFromWindow();
+#endif
 }

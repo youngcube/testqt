@@ -8,10 +8,16 @@ CONFIG += c++11
 
 win32: LIBS += -L"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib" -ladvapi32 -luser32
 
+macx:LIBS += -framework Foundation -framework Cocoa
+macx:INCLUDEPATH += /System/Library/Frameworks/Foundation.framework/Versions/C/Headers \
+/System/Library/Frameworks/AppKit.framework/Headers \
+/System/Library/Frameworks/Cocoa.framework/Headers
+
 PRECOMPILED_HEADER = src/eudic_prefixheader.h
 
 HEADERS += \
     src/eudic_prefixheader.h \
+    src/macutilsmanager.h \
     src/mainapp.h \
     src/FramelessHelper/basicframelesshelper.h \
     src/FramelessHelper/framelesswidgethelper.h \
@@ -22,6 +28,9 @@ win32: HEADERS += \
 
 else: HEADERS += \
                 src/FramelessHelper/windowhandler.h
+
+macx: HEADERS += \
+                src/macutilsmanager.h \
 
 SOURCES += \
         src/main.cpp \
@@ -36,6 +45,8 @@ win32: SOURCES += \
 else: SOURCES += \
                 src/FramelessHelper/windowhandler.cpp
 
+macx: SOURCES += \
+                src/macutilsmanager.mm \
 
 
 RESOURCES += qml.qrc

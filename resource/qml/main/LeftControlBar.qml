@@ -19,8 +19,8 @@ Rectangle {
             Layout.preferredWidth: parent.width
 
             CommonButton {
-                x: 14
-                y: 20
+                x: 19
+                y: 35
                 width: 32
                 height: 32
                 borderRadius: 5

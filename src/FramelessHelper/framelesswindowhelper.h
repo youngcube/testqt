@@ -8,6 +8,8 @@
 
 class WindowHandler;
 
+//为Windows,Linux分别开启无边框窗口模式
+//但mac有 MacUtilsManager::removeTitlebarFromWindow(); 来配置
 class FramelessWindowHelper
         #ifdef Q_OS_WIN
         : public BasicFramelessHelper, public QQmlParserStatus

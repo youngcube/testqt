@@ -12,8 +12,16 @@ ApplicationWindow {
 
     visible: true
     id: main_window
+    //暴露给下面的qml文件使用
+    property ApplicationWindow appWindow : main_window
     title: '欧路词典'
-    width: 900; height: 600
+
+    width: 900
+    height: 600
+
+    //保证所有元素都能显示，不会重叠
+    minimumWidth: 680
+    minimumHeight: 550
 
     //调试逻辑，按下F5重新加载qml
     Shortcut {
@@ -24,9 +32,7 @@ ApplicationWindow {
         }
     }
 
-    //去掉窗口标题等
-    flags: Qt.FramelessWindowHint | Qt.Window
-
+    //去掉窗口标题等，且支持放大缩小
     FramelessWindowHelper {
         Component.onCompleted: {
             //设置顶部按钮，避免按下按钮与双击放大冲突
@@ -43,7 +49,7 @@ ApplicationWindow {
 
         //左侧工具条
         Item {
-            Layout.preferredWidth: 60
+            Layout.preferredWidth: 70
             Layout.fillWidth: false
             Layout.fillHeight: true
 

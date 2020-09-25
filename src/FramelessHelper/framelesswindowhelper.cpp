@@ -48,7 +48,7 @@ void FramelessWindowHelper::componentComplete()
         }
         obj = obj->parent();
     }
-#else
+#elif !defined (Q_OS_MAC)
     auto obj = parent();
     while (Q_NULLPTR != obj) {
         if (obj->inherits("QQuickRootItem")) {
@@ -134,7 +134,7 @@ bool FramelessWindowHelper::isCaption(int x, int y)
     }
     return true;
 }
-#else
+#elif !defined (Q_OS_MAC)
 bool FramelessWindowHelper::eventFilter(QObject *watched, QEvent *event)
 {
     switch (event->type()) {
@@ -153,6 +153,11 @@ bool FramelessWindowHelper::eventFilter(QObject *watched, QEvent *event)
     default:
         break;
     }
+    return QObject::eventFilter(watched, event);
+}
+#else
+bool FramelessWindowHelper::eventFilter(QObject *watched, QEvent *event)
+{
     return QObject::eventFilter(watched, event);
 }
 #endif
