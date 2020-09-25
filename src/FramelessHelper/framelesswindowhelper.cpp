@@ -103,8 +103,9 @@ bool FramelessWindowHelper::isCaption(int x, int y)
             auto child = contentItem->childAt(x, y);
 
             // 如果当前child有我们需要处理的对象则返回
-            if (m_objects.contains(child))
+            if (m_objects.contains(child)) {
                 return false;
+            }
 
             QPointF gPos = contentItem->mapToGlobal(QPointF(x, y));
 
@@ -113,8 +114,9 @@ bool FramelessWindowHelper::isCaption(int x, int y)
                 auto pos = child->mapFromGlobal(gPos);
                 // skip rootItem
                 child = child->childAt(pos.x(), pos.y());
-                if (m_objects.contains(child))
+                if (m_objects.contains(child)) {
                     return false;
+                }
 
                 // 遍历整个child查找是否有我们需要处理的对象
                 //! [1]
@@ -123,7 +125,9 @@ bool FramelessWindowHelper::isCaption(int x, int y)
                     for (int i = 0; i < items.length(); ++i) {
                         pos = items[i]->mapFromGlobal(gPos);
                         auto item = items[i]->childAt(pos.x(), pos.y());
-                        if (item && m_objects.contains(item)) return false;
+                        if (item && m_objects.contains(item)) {
+                            return false;
+                        }
                     }
                     pos = child->mapFromGlobal(gPos);
                     child = child->childAt(pos.x(), pos.y());

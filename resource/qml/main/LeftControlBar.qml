@@ -14,15 +14,21 @@ Rectangle {
         spacing: 0
 
         //顶部头像
-        Item {
-            Layout.preferredHeight: 70
-            Layout.preferredWidth: parent.width
+        ColumnLayout {
+            Layout.fillWidth: true
+            spacing: 0
+
+            Item {
+                Layout.preferredHeight: 30
+                Layout.fillWidth: true
+            }
 
             CommonButton {
-                x: 19
-                y: 35
-                width: 32
-                height: 32
+
+                Layout.alignment: Qt.AlignHCenter
+
+                Layout.preferredHeight: 32
+                Layout.preferredWidth: 32
                 borderRadius: 5
 
                 Image {

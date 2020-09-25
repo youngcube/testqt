@@ -36,7 +36,7 @@ ApplicationWindow {
     FramelessWindowHelper {
         Component.onCompleted: {
             //设置顶部按钮，避免按下按钮与双击放大冲突
-//            addTitleObject(top_control_bar)
+            addTitleObject(test123)
             setTitleHeight(topTitleBarHeight)
         }
     }
@@ -50,6 +50,7 @@ ApplicationWindow {
 
         //左侧工具条
         Item {
+            id: test123
             Layout.preferredWidth: 70
             Layout.fillWidth: false
             Layout.fillHeight: true
