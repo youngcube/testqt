@@ -36,7 +36,7 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    systemBar_feedbackButton = feedbackId
+                    appWindowTitleObjects.push(feedbackId)
                 }
             }
 
@@ -57,7 +57,7 @@ Item {
                 onClicked: appWindow.visibility = Window.Minimized
 
                 Component.onCompleted: {
-                    systemBar_minimumButton = minimumId
+                    appWindowTitleObjects.push(minimumId)
                 }
             }
 
@@ -81,7 +81,6 @@ Item {
 
                 Component.onCompleted: {
                     appWindowTitleObjects.push(maximumId)
-                    systemBar_maximumButton = maximumId
                 }
             }
 
@@ -102,7 +101,7 @@ Item {
                 onClicked: appWindow.close()
 
                 Component.onCompleted: {
-                    systemBar_closeButton = closeButtonId
+                    appWindowTitleObjects.push(closeButtonId)
                 }
             }
         }

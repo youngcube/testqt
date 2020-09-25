@@ -25,10 +25,15 @@ Item {
                 border.color: 'transparent'
                 color: '#EFEFF0'
             }
+
+            Component.onCompleted: {
+                appWindowTitleObjects.push(searchField)
+            }
         }
 
         Row {
             CommonButton {
+                id: prevButtonId
                 width: 25
                 height: 20
                 Image {
@@ -38,6 +43,10 @@ Item {
                     fillMode: Image.PreserveAspectFit
                     source: 'qrc:/resource/image/mnu_tool_back_icon@2x.png'
                 }
+
+                Component.onCompleted: {
+                    appWindowTitleObjects.push(prevButtonId)
+                }
             }
 
             Item {
@@ -46,6 +55,7 @@ Item {
             }
 
             CommonButton {
+                id: nextButtonId
                 width: 25
                 height: 20
                 Image {
@@ -54,6 +64,10 @@ Item {
                     anchors.centerIn: parent
                     fillMode: Image.PreserveAspectFit
                     source: 'qrc:/resource/image/mnu_tool_forward_icon@2x.png'
+                }
+
+                Component.onCompleted: {
+                    appWindowTitleObjects.push(nextButtonId)
                 }
             }
         }

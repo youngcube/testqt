@@ -10,11 +10,7 @@ import '../components'
 ApplicationWindow {
 
     property int topTitleBarHeight: 60
-
-    property list<CommonButton> appWindowTitleObjects
-    property CommonButton systemBar_maximumButton
-    property CommonButton systemBar_minimumButton
-    property CommonButton systemBar_feedbackButton
+    property var appWindowTitleObjects: []
 
     visible: true
     id: main_window
