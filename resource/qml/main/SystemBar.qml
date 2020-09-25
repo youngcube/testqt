@@ -24,6 +24,7 @@ Item {
 
             //反馈
             CommonButton {
+                id: feedbackId
                 Layout.preferredWidth: containerSize
                 Layout.preferredHeight: containerSize
                 Image {
@@ -34,10 +35,14 @@ Item {
                     source: 'qrc:/resource/image/mnu_tool_opinion_icon@2x.png'
                 }
 
+                Component.onCompleted: {
+                    systemBar_feedbackButton = feedbackId
+                }
             }
 
             //最小化
             CommonButton {
+                id: minimumId
                 visible: Qt.platform.os !== 'osx'
                 Layout.preferredWidth: containerSize
                 Layout.preferredHeight: containerSize
@@ -50,10 +55,15 @@ Item {
                 }
 
                 onClicked: appWindow.visibility = Window.Minimized
+
+                Component.onCompleted: {
+                    systemBar_minimumButton = minimumId
+                }
             }
 
             //最大化
             CommonButton {
+                id: maximumId
                 visible: Qt.platform.os !== 'osx'
                 Layout.preferredWidth: containerSize
                 Layout.preferredHeight: containerSize
@@ -68,10 +78,15 @@ Item {
                 onClicked: {
                     appWindow.visibility = Window.visibility === Window.Windowed ? Window.Maximized : Window.Windowed
                 }
+
+                Component.onCompleted: {
+                    systemBar_maximumButton = maximumId
+                }
             }
 
             //关闭
             CommonButton {
+                id: closeButtonId
                 visible: Qt.platform.os !== 'osx'
                 Layout.preferredWidth: containerSize
                 Layout.preferredHeight: containerSize
@@ -84,10 +99,14 @@ Item {
                 }
 
                 onClicked: appWindow.close()
+
+                Component.onCompleted: {
+                    systemBar_closeButton = closeButtonId
+                }
             }
         }
 
-        Rectangle {
+        Item {
             Layout.preferredWidth: 19 //与头像靠左的位置一致
             Layout.fillHeight: true
         }

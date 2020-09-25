@@ -5,10 +5,16 @@ import QtQuick.Dialogs 1.2
 import QtWebEngine 1.8
 import QtQuick.Window 2.2
 import FramelessWindowHelper 1.0
+import '../components'
 
 ApplicationWindow {
 
     property int topTitleBarHeight: 60
+
+    property CommonButton systemBar_closeButton
+    property CommonButton systemBar_maximumButton
+    property CommonButton systemBar_minimumButton
+    property CommonButton systemBar_feedbackButton
 
     visible: true
     id: main_window
@@ -32,16 +38,37 @@ ApplicationWindow {
         }
     }
 
+    flags: Qt.platform.os !== 'osx' ? Qt.FramelessWindowHint | Qt.Window : Qt.Window
+
+    Timer {
+        id: timer
+    }
+
+    function delay(delayTime, cb) {
+        timer.interval = delayTime;
+        timer.repeat = false;
+        timer.triggered.connect(cb);
+        timer.start();
+    }
+
     //去掉窗口标题等，且支持放大缩小
     FramelessWindowHelper {
+
         Component.onCompleted: {
-            //设置顶部按钮，避免按下按钮与双击放大冲突
-            addTitleObject(test123)
+            //设置顶部按钮，避免按下按钮与双击放大冲突，这里需要一段延迟
+            delay(1500, function() {
+                var list = [
+                            systemBar_closeButton,
+                            systemBar_maximumButton,
+                            systemBar_minimumButton,
+                            systemBar_feedbackButton
+                        ]
+                addTitleObjects(list)
+            })
+            //设置顶部高度，来响应双击放大
             setTitleHeight(topTitleBarHeight)
         }
     }
-
-    flags: Qt.platform.os !== 'osx' ? Qt.FramelessWindowHint | Qt.Window : Qt.Window
 
     //为了支持windows下的frameless，外面再套一层，因为最大化后边缘会被屏幕裁掉
     Item {
@@ -55,7 +82,6 @@ ApplicationWindow {
 
             //左侧工具条
             Item {
-                id: test123
                 Layout.preferredWidth: 70
                 Layout.fillWidth: false
                 Layout.fillHeight: true
