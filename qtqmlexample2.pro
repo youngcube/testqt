@@ -26,11 +26,12 @@ HEADERS += \
 win32: HEADERS += \
                 src/FramelessHelper/nativeeventfilter.h
 
+macx: HEADERS += \
+                src/macutilsmanager.h \
+
 else: HEADERS += \
                 src/FramelessHelper/windowhandler.h
 
-macx: HEADERS += \
-                src/macutilsmanager.h \
 
 SOURCES += \
         src/main.cpp \
@@ -42,11 +43,11 @@ SOURCES += \
 win32: SOURCES += \
                 src/FramelessHelper/nativeeventfilter.cpp
 
-else: SOURCES += \
-                src/FramelessHelper/windowhandler.cpp
-
 macx: SOURCES += \
                 src/macutilsmanager.mm \
+
+else: SOURCES += \
+                src/FramelessHelper/windowhandler.cpp
 
 
 RESOURCES += qml.qrc
