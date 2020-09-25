@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
+        <file>resource/default.txt</file>
         <file>resource/qml/main/main.qml</file>
         <file>resource/qml/main/LeftControlBar.qml</file>
         <file>resource/qml/main/SearchBar.qml</file>
@@ -9,6 +10,8 @@
         <file>resource/qml/main/SystemBar.qml</file>
         <file>resource/qml/main/DictBar.qml</file>
         <file>resource/qml/main/LeftControlBarLine.qml</file>
+        <file>resource/qml/main/DragMainWindowMouseArea.qml</file>
+        <file>resource/qml/components/CommonButton.qml</file>
         <file>resource/image/mnu_tool_voice_icon@2x.png</file>
         <file>resource/image/mnu_tool_back_icon@2x.png</file>
         <file>resource/image/mnu_tool_close_icon@2x.png</file>
@@ -27,7 +30,5 @@
         <file>resource/image/sidebar_tran_icon@2x.png</file>
         <file>resource/image/sidebar_wiki_icon@2x.png</file>
         <file>resource/image/sidebar_word_icon@2x.png</file>
-        <file>resource/qml/components/CommonButton.qml</file>
-        <file>resource/qml/main/DragMainWindowMouseArea.qml</file>
     </qresource>
 </RCC>

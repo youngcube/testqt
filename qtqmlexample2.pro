@@ -22,6 +22,9 @@ HEADERS += \
     src/FramelessHelper/basicframelesshelper.h \
     src/FramelessHelper/framelesswidgethelper.h \
     src/FramelessHelper/framelesswindowhelper.h \
+    src/customtype.h \
+    src/treeitem.h \
+    src/treemodel.h \
 
 win32: HEADERS += \
                 src/FramelessHelper/nativeeventfilter.h
@@ -39,6 +42,9 @@ SOURCES += \
         src/FramelessHelper/basicframelesshelper.cpp \
         src/FramelessHelper/framelesswidgethelper.cpp \
         src/FramelessHelper/framelesswindowhelper.cpp \
+        src/customtype.cpp \
+        src/treeitem.cpp \
+        src/treemodel.cpp \
 
 win32: SOURCES += \
                 src/FramelessHelper/nativeeventfilter.cpp

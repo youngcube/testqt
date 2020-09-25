@@ -1,164 +1,36 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.3
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
+import hvoigt.net 1.0
+import '../components'
 
 Item {
 
-    ListModel {
+    TreeView {
+        anchors.fill: parent
+        model: theModel
+        headerVisible: false
+        horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+        verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 
-        //数据模型
-        id:listModel
-
-
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-        ListElement{
-            name:"apple"
-            number:"n. 苹果; 苹果树"
-        }
-        ListElement{
-            name:"bitter"
-            number:"adj. 有苦味的 严寒的, 刺骨的 辛酸的, 引起痛苦的; 难以接受的 充满仇恨的"
-        }
-    }
-
-    Component {
-        id:delegate
-
-        Item {
-            id:wrapper;
-            width: listView.width;
-            height:40
-
-            ColumnLayout {
-                spacing: 2
-
-
-                anchors.fill: parent
-
-                Text{
-                    Layout.topMargin: 5
-                    Layout.bottomMargin: -3
-
-                    Layout.leftMargin: 10
-                    Layout.rightMargin: 10
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-
-                    text: name
-                    color: 'black'
-                }
-                Text{
-                    Layout.bottomMargin: 5
-
-                    Layout.leftMargin: 10
-                    Layout.rightMargin: 10
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-
-                    text: number
-                    color: 'gray'
-                }
+        style: TableViewStyle {
+            frame: Rectangle {
+                border.width: 0
             }
         }
-    }
 
-    Component {   //高亮条
-        id:highlight
-        Rectangle {
-            color:"lightsteelblue"
-            radius:0
+        itemDelegate: Text {
+            anchors.fill: parent
+            color: '#333333'
+            elide: Qt.ElideRight
+            text: styleData.value.text
         }
-    }
 
-    ScrollView {
-        anchors.fill: parent
-        ScrollBar.vertical.policy: ScrollBar.AsNeeded
-        clip: true
-
-
-
-        contentWidth: -1 //避免出现横向滚动条
-
-        ListView {
-            id: listView
-
-            boundsBehavior: Flickable.StopAtBounds //避免回弹bounce
-
-            model:listModel  //关联数据模型
-            delegate:delegate  //关联代理
-            highlight:highlight  //关联高亮条
-            focus:true  //可以获得焦点，这样就可以响应键盘了
+        TableViewColumn {
+            movable: false
+            resizable: false
+            role: "title"
         }
     }
 }

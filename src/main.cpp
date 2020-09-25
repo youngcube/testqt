@@ -6,6 +6,11 @@
 #ifdef Q_OS_MAC
 #include "macutilsmanager.h"
 #endif
+
+#include <QFile>
+#include "treemodel.h"
+#include "customtype.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -20,6 +25,11 @@ int main(int argc, char *argv[])
     QFont defaultFont("Microsoft YaHei", 9, QFont::Normal, false);
     QGuiApplication::setFont(defaultFont);
 #endif
+
+    QFile file(":/resource/default.txt");
+    file.open(QIODevice::ReadOnly);
+    TreeModel model(file.readAll());
+    file.close();
 
     QQmlApplicationEngine engine;
 
@@ -36,6 +46,10 @@ int main(int argc, char *argv[])
     //注册给qml使用
     qmlRegisterType<FramelessWindowHelper>("FramelessWindowHelper", 1, 0, "FramelessWindowHelper");
     const QUrl url(QStringLiteral("qrc:/resource/qml/main/main.qml"));
+
+    engine.rootContext()->setContextProperty("theModel",&model);
+    qmlRegisterType<CustomType>("hvoigt.net", 1, 0, "CustomType");
+
     engine.load(url);
     if (engine.rootObjects().isEmpty())
     {

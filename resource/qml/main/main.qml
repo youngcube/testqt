@@ -125,7 +125,7 @@ ApplicationWindow {
 
                     //中间的分隔条样式
                     handle: Rectangle {
-                        implicitWidth: 1
+                        implicitWidth: 5
                         implicitHeight: 1
                         color: SplitHandle.pressed ? "#EFEFF0"
                                 : (SplitHandle.hovered ? Qt.lighter("#EFEFF0", 1.1) : "#EFEFF0")
@@ -133,7 +133,7 @@ ApplicationWindow {
 
                     //单词列表
                     LeftTreeView {
-                        SplitView.maximumWidth: 400
+                        SplitView.maximumWidth: 500
                         SplitView.preferredWidth: 150
                         SplitView.minimumWidth: 50
                         SplitView.fillHeight: true

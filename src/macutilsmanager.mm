@@ -17,7 +17,8 @@ void MacUtilsManager::removeTitlebarFromWindow(long winId)
 
     [nativeWindow setStyleMask:[nativeWindow styleMask] | NSWindowStyleMaskFullSizeContentView];
     [nativeWindow setTitlebarAppearsTransparent:YES];
-    [nativeWindow setMovableByWindowBackground:YES];
+    //不开启，否则很多鼠标动作都失效了
+//    [nativeWindow setMovableByWindowBackground:YES];
     [nativeWindow setTitleVisibility:NSWindowTitleHidden];
 }
 
