@@ -76,19 +76,8 @@ ApplicationWindow {
                 Layout.fillWidth: false
                 Layout.fillHeight: true
 
-                MouseArea {
-                    anchors.fill: parent
-                    property point pressPos
-                    onPressed: pressPos = Qt.point(mouse.x, mouse.y)
-                    onPositionChanged: {
-                        if (main_window.visibility === Window.Windowed) {
-                            main_window.x += mouse.x - pressPos.x
-                            main_window.y += mouse.y - pressPos.y
-                        }
-                    }
-                    onDoubleClicked: {
+                DragMainWindowMouseArea {
 
-                    }
                 }
 
                 LeftControlBar {
@@ -107,21 +96,10 @@ ApplicationWindow {
                     Layout.fillHeight: false
                     Layout.fillWidth: true
 
-                    //todo: 抽象出来
                     //拖动窗口，注意MouseArea有优先级，后面覆盖前面，因此需要放到最上面，同时与顶部控制条同一层级
-                    MouseArea {
-                        anchors.fill: parent
-                        property point pressPos
-                        onPressed: pressPos = Qt.point(mouse.x, mouse.y)
-                        onPositionChanged: {
-                            if (main_window.visibility === Window.Windowed) {
-                                main_window.x += mouse.x - pressPos.x
-                                main_window.y += mouse.y - pressPos.y
-                            }
-                        }
-                        onDoubleClicked: {
+                    //目前这里顶部拖动，其实就linux会用到，windows通过framelesshelper了，而mac则是macutilsmanager
+                    DragMainWindowMouseArea {
 
-                        }
                     }
 
                     //顶部搜索等
