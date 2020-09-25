@@ -80,6 +80,7 @@ Item {
                 }
 
                 Component.onCompleted: {
+                    appWindowTitleObjects.push(maximumId)
                     systemBar_maximumButton = maximumId
                 }
             }

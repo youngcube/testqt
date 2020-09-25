@@ -11,7 +11,7 @@ ApplicationWindow {
 
     property int topTitleBarHeight: 60
 
-    property CommonButton systemBar_closeButton
+    property list<CommonButton> appWindowTitleObjects
     property CommonButton systemBar_maximumButton
     property CommonButton systemBar_minimumButton
     property CommonButton systemBar_feedbackButton
@@ -57,13 +57,7 @@ ApplicationWindow {
         Component.onCompleted: {
             //设置顶部按钮，避免按下按钮与双击放大冲突，这里需要一段延迟
             delay(1000, function() {
-                var list = [
-                            systemBar_closeButton,
-                            systemBar_maximumButton,
-                            systemBar_minimumButton,
-                            systemBar_feedbackButton
-                        ]
-                addTitleObjects(list)
+                addTitleObjects(appWindowTitleObjects)
             })
             //设置顶部高度，来响应双击放大
             setTitleHeight(topTitleBarHeight)

@@ -1,5 +1,4 @@
 #include "macutilsmanager.h"
-#ifdef Q_OS_MAC
 #include <QGuiApplication>
 #include <QWindow>
 #include <Cocoa/Cocoa.h>
@@ -22,4 +21,3 @@ void MacUtilsManager::removeTitlebarFromWindow(long winId)
     [nativeWindow setTitleVisibility:NSWindowTitleHidden];
 }
 
-#endif
