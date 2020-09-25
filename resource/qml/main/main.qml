@@ -46,7 +46,7 @@ ApplicationWindow {
     //为了支持windows下的frameless，外面再套一层，因为最大化后边缘会被屏幕裁掉
     Item {
         anchors.fill: parent
-        anchors.margins: (main_window.visibility === ApplicationWindow.Maximized && Qt.platform.os !== 'osx') ? 8 : 0
+        anchors.margins: (main_window.visibility === ApplicationWindow.Maximized && Qt.platform.os === 'windows') ? 8 : 0
 
         RowLayout {
             id: layout
