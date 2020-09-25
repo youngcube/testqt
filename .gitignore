@@ -1,1 +1,8 @@
 *.pro.user
+*.xcodeproj
+Debug/*.*
+moc_*.*
+.xcode
+.qmake.stash
+Info.plist
+qrc_qml.cpp
